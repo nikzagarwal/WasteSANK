@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WasteSank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssfile/style.css') }}">
+    <script src="{{url_for('static',filename='jsfile/indexf.js')}}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+</head>
+
+<body>
+        
+    <!-- Header begins -->
+    <div class="header">
+        <a href="/">
+            <h1>WasteSANK</h1>
+        </a>
+    </div>
+    <div class="topnav" id="myTopnav">
+        <!-- <div class="navbar-header">
+            <a class="navbar-brand " style="font-size: xx-large;" href="#">Finance Planner</a>
+        </div> -->
+        <a href="/" class="btn">Home</a>
+        <a href="/local" class="btn" >Dashboard</a>
+        <a href="/reward" class="btn" >Reward</a>
+        <a href="/locate" class="btn" >Locate</a>
+        <a href="/industry" class="btn" >Industrial</a>
+        <a href="javascript:void(0);" class="icon" onclick="header()">
+            <i class="fa fa-bars"></i>
+        </a>
+        
+
+    </div>
+    <!--header ends-->
+    {% block body %}
+    
+    {% endblock body %}
+    
+
+</section>
+<!-- End of goal section  -->
+<br><br>
+<!-- Footer section  -->
+<footer class="footer">
+    
+        <div className="copyrights">
+        <div className="container">
+            <div className="footer-distributed">
+                <div className="footer-left">
+                    <p className="footer-company-name">&copy; 2021 <a href="/"> WasteSANK </a></p>
+                </div>
+
+                <div className="footer-right">
+                    <form method="get" action="#">
+                        <i className="fa fa-envelope-o"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+
+</html>

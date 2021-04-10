@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<!-- result  -->
+<section>
+    <div class="goalbox">
+        <h1>Dashboard</h1>
+        <p> Now, you can visualize the status of Bangalore city in terms of waste and how your area is doung it</p>
+        <br>
+    </div>
+
+    <div class="container text-center">
+        <a href="/localform" style="float: none;" class="but">Add Data</a>
+    </div>
+<br><br>
+</section>
+<div class="row" style="padding-left: 0.5cm;padding-right: 0.5cm;">
+    <div class="col-50">
+        <img src="{{url_for('static',filename='img/generate.png')}}" alt="genearted waste" width="95%" height="400">
+    </div>
+    <div class="col-50">
+        <img src="{{url_for('static',filename='img/recycled.png')}}" alt="genearted waste" width="95%" height="400">
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <br><rbr></rbr>
+<div class="text-center">
+    <a style="float: none;" href="/cluster" class="but">See detailed cluster wise data on the map of Bangalore</a>
+    <p style="padding: 2em;font-family: 'Merriweather', serif;
+    font-size: 22px; 
+    font-weight: 300; 
+    line-height: 40px;
+    margin: 10px 30px ;
+    text-align: center;
+    text-shadow: rgb(43, 41, 54) -1px -1px;"> Note: Cluster are numbered in such a way that cluster 0 produces least waste </p>
+</div>
+</div>
+<br><br>
+<script>
+    const urldata = JSON.parse('{{ urldata | tojson }}');
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+            url: urldata,
+            dataType: "text",
+            success: function (data) {
+                var csvdata = data.split(/\r?\n|\r/);
+                var table_data = '<table class="table table-bordered table-striped">';
+                for (var count = 0; count <= 10; count++) {
+                    var cell_data = csvdata[count].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                        if (count === 0) {
+                            table_data += '<th>' + cell_data[cell_count] + '</th>';
+                        }
+                        else {
+                            table_data += '<td>' + cell_data[cell_count] + '</td>';
+                        }
+                    }
+                    table_data += '</tr>';
+                }
+                table_data += '</table>';
+                $('#data_table2').html(table_data);
+            }
+        });
+    });
+</script>
+<div  style="padding-left: 5em; margin: 1em 5em 1em 5em; border: 4cm; background-color: beige;">
+    <h3 id="rank">Ranking of Wards by waste generated in last 3 years</h3>
+<div id="data_table2"  style="margin: 1em 1em 1em 1em;">
+    
+</div>
+</div>
+
+<div class="text-center">
+    <a style="float: none;" onclick="show()" class="but">Show/Hide Full Data</a>
+</div>
+<script>
+    count = 0;
+    function show() {
+        if (count == 0) {
+            document.getElementById("data_table").style.display = "block";
+            count++;
+        }
+        else {
+            document.getElementById("data_table").style.display = "none";
+            count--;
+        }
+    }
+</script>
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+            url: urldata,
+            dataType: "text",
+            success: function (data) {
+                var csvdata = data.split(/\r?\n|\r/);
+                var table_data = '<table class="table table-bordered table-striped">';
+
+                for (var count = 0; count < csvdata.length; count++) {
+                    var cell_data = csvdata[count].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                        if (count === 0) {
+                            table_data += '<th>' + cell_data[cell_count] + '</th>';
+                        }
+                        else {
+                            table_data += '<td>' + cell_data[cell_count] + '</td>';
+                        }
+                    }
+                    table_data += '</tr>';
+                }
+                table_data += '</table>';
+                $('#data_table').html(table_data);
+            }
+        });
+    });
+</script>
+<div id="data_table" style="margin: 1em 5em 1em 5em;">
+</div>
+
+
+
+<script>
+    const urldata2 = JSON.parse('{{ urldata2 | tojson }}');
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+            url: urldata2,
+            dataType: "text",
+            success: function (data) {
+                var csvdata = data.split(/\r?\n|\r/);
+                var table_data = '<table class="table table-bordered table-striped">';
+
+                for (var count = 0; count < 10; count++) {
+                    var cell_data = csvdata[count].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                        if (count === 0) {
+                            table_data += '<th>' + cell_data[cell_count] + '</th>';
+                        }
+                        else {
+                            table_data += '<td>' + cell_data[cell_count] + '</td>';
+                        }
+                    }
+                    table_data += '</tr>';
+                }
+                table_data += '</table>';
+                $('#data_table3').html(table_data);
+            }
+        });
+    });
+</script>
+<div  style="padding-left: 5em; margin: 1em 5em 1em 5em; border: 4cm; background-color: beige;">
+    <h3 id="rank">Ranking of Wards by waste recycled in last 3 years</h3>
+<div id="data_table3"  style="margin: 1em 1em 1em 1em;">
+    
+</div>
+</div>
+
+<div class="text-center">
+    <a style="float: none;" onclick="show2()" class="but">Show/Hide Full Data</a>
+</div>
+<script>
+    count = 0;
+    function show2() {
+        if (count == 0) {
+            document.getElementById("data_table4").style.display = "block";
+            count++;
+        }
+        else {
+            document.getElementById("data_table4").style.display = "none";
+            count--;
+        }
+    }
+</script>
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+            url: urldata2,
+            dataType: "text",
+            success: function (data) {
+                var csvdata = data.split(/\r?\n|\r/);
+                var table_data = '<table class="table table-bordered table-striped">';
+
+                for (var count = 0; count < csvdata.length; count++) {
+                    var cell_data = csvdata[count].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                        if (count === 0) {
+                            table_data += '<th>' + cell_data[cell_count] + '</th>';
+                        }
+                        else {
+                            table_data += '<td>' + cell_data[cell_count] + '</td>';
+                        }
+                    }
+                    table_data += '</tr>';
+                }
+                table_data += '</table>';
+                $('#data_table4').html(table_data);
+            }
+        });
+    });
+</script>
+<div id="data_table4" style="margin: 1em 5em 1em 5em;">
+</div>
+
+
+{% endblock body %}

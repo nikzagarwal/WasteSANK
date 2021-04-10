@@ -1,0 +1,9 @@
+{
+    "params":
+    {
+        "server":"sqlite:///data.db",
+        "key":"dljsaklqk24e21cjn!Ew@@dsa5",
+        "u":"admin",
+        "p":"123"
+    }
+}

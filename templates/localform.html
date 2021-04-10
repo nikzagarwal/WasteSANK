@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<!-- result  -->
+<section>
+    <div class="goalbox" >
+        <h1>Add your data</h1>
+        
+        <br>
+    </div>
+
+    
+    <div class="container">
+        <form name="data" action="/industry" method="POST" >
+            <div class="row">
+                <div class="col-50">
+                    <label for="area">Enter Area/Division Name</label>
+                </div>
+                <div class="col-50">
+                    
+                    <select name="area" id="area">
+                        <option value="1">BOMMANAHALLI</option>
+                        <option value="2">YALAHANKA</option>
+                        <option value="3">DASARAHALLI</option>
+                        <option value="4">RR_NAGAR</option>
+                        <option value="5">EAST</option>
+                        <option value="6">Mahadevapura</option>
+                        <option value="7">WEST</option>
+                        <option value="8">SOUTH</option>
+                        <option value="9">Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-50">
+                    <label for="ward">Ward no.</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="number" id="ward" name="ward" placeholder="ward number..." required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="collect">Dry Waste Collected (in Kgs)</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="number" id="dcollect" name="dcollect" placeholder="drywaste collected..." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="collect">Wet Waste Collected (in Kgs)</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="number" id="mcollect" name="wcollect" placeholder="wet waste collected..." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="collect">Mixed Waste Collected (in Kgs)</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="number" id="mcollect" name="mcollect" placeholder="mixed waste collected..." >
+                </div>
+            </div>
+            
+
+
+            <div class="row ">
+                <button type="submit" class="but">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+    {% endblock body %}

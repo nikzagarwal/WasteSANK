@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<!-- result  -->
+<section>
+    <div class="goalbox" >
+        <h1>Add your data   </h1>
+        <p>You will be contacted to collect waste and in turn reward you</p>
+        <br>
+    </div>
+
+   <div class="container">
+        <form name="data" action="/reward" method="POST" >
+            <div class="row">
+                <div class="col-50">
+                    <label for="name">Name</label>
+                </div>
+                <div class="col-50">
+                    
+                    <input type="text" id="name" name="name" placeholder="Name..." >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-50">
+                    <label for="plantcap">Waste Company Name</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="text" id="plantcap" name="plantcap" placeholder="company name..." required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="collect">Waste Collected</label>
+                </div>
+                <div class="col-20" style="padding: 0.8em;">
+                    <input type="number" id="collect" name="collect" placeholder="Amount in kg or pcs..." required>
+                </div>
+                <div class="col-20" style="padding: 0.8em;">
+                    <select name="mtype" id="mtype">
+                        <option value="kg">Kg</option>
+                        <option value="peice">peice</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="email">Email-Id</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="email" id="email" name="email" placeholder="email id..." >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <label for="contact">Contact No.</label>
+                </div>
+                <div class="col-50" style="padding: 0.8em;">
+                    <input type="number" id="contact" name="contact" placeholder="contact no...."  >
+                </div>
+            </div>
+
+
+            <div class="row ">
+                <button type="submit" class="but">Submit</button>
+            </div>
+        </form>
+    </div>
+    {% endblock body %}

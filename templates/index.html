@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<!-- result  -->
+<style>
+
+figure.effect-oscar {
+    background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+    background: linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);
+}
+
+figure.effect-oscar img {
+    opacity: 0.9;
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+}
+
+figure.effect-oscar figcaption {
+    padding: 3em;
+    background-color: rgba(58,52,42,0.7);
+    -webkit-transition: background-color 0.35s;
+    transition: background-color 0.35s;
+}
+
+figure.effect-oscar figcaption::before {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    border: 1px solid #fff;
+    content: '';
+}
+
+figure.effect-oscar h2 {
+    margin:-8% 0 10px  0;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+}
+
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+figure.effect-oscar:hover h2 {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+    background-color: rgba(58,52,42,0);
+}
+
+figure.effect-oscar:hover img {
+    opacity: 0.4;
+
+}
+
+
+
+    .grid {
+    position: relative;
+    /* margin-left: 60px !important; */
+    padding: 1em 0 4em;
+    max-width: 1350px;
+    list-style: none;
+    text-align: center;
+    }
+
+/* Common style */
+.grid figure {
+    position: relative;
+    padding: 0% !important;
+    float: left;
+    overflow: hidden;
+    margin: 3px 1%;
+    /* min-width: 425px;
+    max-width: 450px;
+    max-height: 350px; */
+    width: 45%;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.grid figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+.grid figure figcaption {
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+    pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+.grid figure h2 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+}
+
+.grid figure h2 span {
+    font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+    margin: 0;
+}
+
+.grid figure p {
+    letter-spacing: 1px;
+    font-size: 56.6%;
+}
+/* @media screen and (max-width: 1025px) {
+    .grid {
+        position: relative;
+        margin-left: 10px !important;
+        padding: 1em 0 4em;
+        max-width: 791px;
+        list-style: none;
+        text-align: center;
+    }
+    
+    /* Common style */
+    .grid figure {
+        position: relative;
+        padding: 0% !important;
+        float: left;
+        
+        margin: 3px 1%;
+        /* min-width: 425px;
+        max-width: 150px;
+        max-height: 350px; */
+        width: 100%;
+        background: #3085a3;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .grid figure img {
+        position: relative;
+        display: block;
+        min-height: 50%;
+        max-width: 100%;
+        opacity: 0.8;
+    }
+    
+    .grid figure figcaption {
+        padding: 2em;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1.25em;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+
+
+
+
+</style>
+<section>
+    <div class="goalbox" >
+        <h1>Welcome to WasteSANK</h1>
+        
+        <br>
+    </div>
+
+    <div class="container-fluid">
+        <div class="content">
+          <div class="row grid justify-content-center">
+            <div class="col-md-3">
+              <figure class="effect-oscar">
+                <a href="/local">
+                  <img width="300" height="200" src="{{url_for('static',filename='img/img-3.png')}}" alt="gito.ai" />
+                  <figcaption>
+                    <h2>Dashboard</h2>
+                    <p>Analsysis of daily waste generated and recycled in our city</p>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-3">
+              <figure class="effect-oscar">
+                <a href="/reward">
+                  <img width="300" height="200" src="{{url_for('static',filename='img/img-4.jpg')}}" alt="marketplace" />
+                  <figcaption>
+                    <h2>Reward </h2>
+                    <p>A system where waste collectors can get rewarded by comapnies</p>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-3">
+              <figure class="effect-oscar">
+                <a href="/locate">
+                  <img width="300" height="200"src="{{url_for('static',filename='img/img-1.jpg')}}" alt="survey" />
+                  <figcaption>
+                    <h2>Locate</h2>
+                    <p>Now, Municipality can keep track of its waste picking vehicles</p>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-3">
+              <figure class="effect-oscar">
+                <a href="/industry">
+                  <img width="300" height="200"src="{{url_for('static',filename='img/img-2.jpg')}}" alt="digital twin" />
+                  <figcaption>
+                    <h2>Industrial </h2>
+                    <p>An initiative to balance waste distribution among industries for better management </p>
+                  </figcaption>
+                </a>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+{% endblock body %}
