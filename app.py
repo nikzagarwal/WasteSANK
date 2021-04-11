@@ -1,6 +1,7 @@
 from flask import Flask, render_template , request, url_for 
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
+import psycopg2
 import json
 
 with open('templates/config.json','r') as c:
@@ -8,7 +9,7 @@ with open('templates/config.json','r') as c:
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = params['server']
+app.config['SQLALCHEMY_DATABASE_URI'] = params['server2']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db=SQLAlchemy(app)
 
