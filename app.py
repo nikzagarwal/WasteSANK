@@ -77,7 +77,7 @@ def reward():
       db.session.add(x)
       db.session.commit()
       reward=Rewarddb.query.all()
-      return render_template('reward.html',myreward=reward) 
+      return render_template('reward.html',reward=reward) 
    reward=Rewarddb.query.all()      
    return render_template('reward.html',reward=reward)
 
