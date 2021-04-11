@@ -8,6 +8,7 @@
 <section>
     <div class="goalbox" >
         <h1>Industrial Waste analytics</h1>
+        <br>
         <p> Data will show how much waste is recycled by industries </p>
         <p >We are trying to maintain the balance of distribution of waste among industries and also try to maximize their profit</p>
         <br>
@@ -33,9 +34,9 @@
                 </tr>
             </thead>
             <tbody>
-                
+                {% for x in industry %}
                 <tr class="active-row">
-                    {% for x in industry %}
+                    
                     <td>{{x.sno}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.plantcap}}</td>
@@ -44,8 +45,9 @@
                     <td>{{x.Time}}</td>
                     <td>{{x.emailid}}</td>
                     <td>{{x.phoneno}}</td>
-                    {% endfor %}
+                   
                     </tr>
+                    {% endfor %}
             </tbody>
         </table>
     </div>
