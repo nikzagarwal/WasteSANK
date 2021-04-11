@@ -1,7 +1,8 @@
 {
     "params":
     {
-        "server":"sqlite:///plastic.db",
+        "server2":"sqlite:///plastic.db",
+        "server":"postgres://sghpmwfpxyqtkl:d63e4619bb136cbfe784feba493b89db51d06eae77db51dac6e8e6fba7145601@ec2-52-21-153-207.compute-1.amazonaws.com:5432/d7go4qeh480rlg",
         "key":"dljsaklqk24e21cjn!Ew@@dsa5",
         "u":"admin",
         "p":"123"
