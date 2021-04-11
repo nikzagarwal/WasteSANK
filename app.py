@@ -42,7 +42,9 @@ class Wastedb(db.Model):
     drywasteamt=db.Column(db.Integer)
     wetwasteamt=db.Column(db.Integer)
     mixedwasteamt=db.Column(db.Integer)
-    
+    year=db.Column(db.Integer,nullable=False)
+    month=db.Column(db.Integer,nullable=False)
+
 @app.route('/')
 def home():        
    return render_template('index.html')
@@ -58,12 +60,16 @@ def local():
       wetwasteamt=request.form['wcollect']
       mixedwasteamt=request.form['mcollect']
       password=request.form['pass']
-      x=Wastedb(areaname=areaname,wardno=wardno,drywasteamt=drywasteamt,wetwasteamt=wetwasteamt,mixedwasteamt=mixedwasteamt)
+      year=request.form['year']
+      month=request.form['month']
+      x=Wastedb(areaname=areaname,wardno=wardno,drywasteamt=drywasteamt,wetwasteamt=wetwasteamt,mixedwasteamt=mixedwasteamt,year=year,month=month)
       if(password==params['p']):
          db.session.add(x)
          db.session.commit()
-      return render_template('local.html',urldata=urldata,urldata2=urldata2)
-   return render_template('local.html',urldata=urldata,urldata2=urldata2)
+      waste=Wastedb.query.all()
+      return render_template('local.html',urldata=urldata,urldata2=urldata2,waste=waste)
+   waste=Wastedb.query.all()
+   return render_template('local.html',urldata=urldata,urldata2=urldata2,waste=waste)
 
 @app.route('/reward',methods=['GET','POST'])
 def reward():        
