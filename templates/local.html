@@ -15,7 +15,7 @@
     <div class="container text-center">
         <a href="/localform" style="float: none;" class="but">Add Data</a>
     </div>
-<br><br>
+    <br><br>
 </section>
 <div class="row" style="padding-left: 0.5cm;padding-right: 0.5cm;">
     <div class="col-50">
@@ -29,55 +29,107 @@
 <br>
 
 <div class="container">
-    <br><rbr></rbr>
-<div class="text-center">
-    <a style="float: none;" href="/cluster" class="but">See detailed cluster wise data on the map of Bangalore</a>
-    <p style="padding: 2em;font-family: 'Merriweather', serif;
+    <br>
+    <rbr></rbr>
+    <div class="text-center">
+        <a style="float: none;" href="/cluster" class="but">See detailed cluster wise data on the map of Bangalore</a>
+        <p style="padding: 2em;font-family: 'Merriweather', serif;
     font-size: 22px; 
     font-weight: 300; 
     line-height: 40px;
     margin: 10px 30px ;
     text-align: center;
-    text-shadow: rgb(43, 41, 54) -1px -1px;"> Note: Cluster are numbered in such a way that cluster 0 produces least waste </p>
-</div>
+    text-shadow: rgb(43, 41, 54) -1px -1px;"> Note: Cluster are numbered in such a way that cluster 0 produces least
+            waste </p>
+    </div>
 </div>
 <br><br>
-<script>
-    const urldata = JSON.parse('{{ urldata | tojson }}');
+<div class="row">
+
+    <script>
+        const urldata = JSON.parse('{{ urldata | tojson }}');
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-        $.ajax({
-            url: urldata,
-            dataType: "text",
-            success: function (data) {
-                var csvdata = data.split(/\r?\n|\r/);
-                var table_data = '<table class="table table-bordered table-striped">';
-                for (var count = 0; count <= 10; count++) {
-                    var cell_data = csvdata[count].split(",");
+        document.addEventListener("DOMContentLoaded", function () {
+            $.ajax({
+                url: urldata,
+                dataType: "text",
+                success: function (data) {
+                    var csvdata = data.split(/\r?\n|\r/);
+                    var table_data = '<table class="table table-bordered table-striped">';
+                    for (var count = 0; count <= 10; count++) {
+                        var cell_data = csvdata[count].split(",");
+                        table_data += '<tr>';
+                        for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                            if (count === 0) {
+                                table_data += '<th>' + cell_data[cell_count] + '</th>';
+                            }
+                            else {
+                                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                            }
+                        }
+                        table_data += '</tr>';
+                    }
+                    table_data += '</table>';
+                    $('#data_table2').html(table_data);
+                }
+            });
+        });
+    </script>
+    <div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%;  border: 4cm; background-color: rgb(123, 197, 116);">
+        <h3 id="rank">Top 10 Least Dry Waste Generating wards in last 3 years</h3>
+        <div id="data_table2" style="margin: 1em 1em 1em 1em;">
+
+        </div>
+    </div>
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            $.ajax({
+                url: urldata,
+                dataType: "text",
+                success: function (data) {
+                    var csvdata = data.split(/\r?\n|\r/);
+                    var table_data = '<table class="table table-bordered table-striped">';
+                    var cell_data = csvdata[0].split(",");
                     table_data += '<tr>';
                     for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
-                        if (count === 0) {
-                            table_data += '<th>' + cell_data[cell_count] + '</th>';
-                        }
-                        else {
-                            table_data += '<td>' + cell_data[cell_count] + '</td>';
-                        }
+                        table_data += '<th>' + cell_data[cell_count] + '</th>';
                     }
                     table_data += '</tr>';
+                    for (var count = csvdata.length - 11; count < csvdata.length; count++) {
+                        var cell_data = csvdata[count].split(",");
+                        table_data += '<tr>';
+                        for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                            if (count === 0) {
+                                table_data += '<th>' + cell_data[cell_count] + '</th>';
+                            }
+                            else {
+                                table_data += '<td>' + cell_data[cell_count] + '</td>';
+                            }
+                        }
+                        table_data += '</tr>';
+                    }
+                    table_data += '</table>';
+                    $('#data_table5').html(table_data);
                 }
-                table_data += '</table>';
-                $('#data_table2').html(table_data);
-            }
+            });
         });
-    });
-</script>
-<div  style="padding-left: 5em; margin: 1em 5em 1em 5em; border: 4cm; background-color: beige;">
-    <h3 id="rank">Ranking of Wards by waste generated in last 3 years</h3>
-<div id="data_table2"  style="margin: 1em 1em 1em 1em;">
-    
+    </script>
+    <div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: rgb(212, 132, 132);">
+        <h3 id="rank">Worst 10 Most Dry Waste Generating wards in last 3 years</h3>
+        <div id="data_table5" style="margin: 1em 1em 1em 1em;">
+
+        </div>
+    </div>
 </div>
-</div>
+
+
+<br>
+<br>
+
 
 <div class="text-center">
     <a style="float: none;" onclick="show()" class="but">Show/Hide Full Data</a>
@@ -129,8 +181,9 @@
 <div id="data_table" style="margin: 1em 5em 1em 5em;">
 </div>
 
-
-
+<br>
+<br>
+<div class="row">
 <script>
     const urldata2 = JSON.parse('{{ urldata2 | tojson }}');
 
@@ -143,7 +196,51 @@
                 var csvdata = data.split(/\r?\n|\r/);
                 var table_data = '<table class="table table-bordered table-striped">';
 
-                for (var count = 0; count < 10; count++) {
+                for (var count = 0; count <= 10; count++) {
+                    var cell_data = csvdata[count].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                        if (count === 0) {
+                            table_data += '<th>' + cell_data[cell_count] + '</th>';
+                        }
+                        else {
+                            table_data += '<td>' + cell_data[cell_count] + '</td>';
+                        }
+                    }
+                    table_data += '</tr>';
+                }
+                table_data += '</table>';
+                $('#data_table6').html(table_data);
+            }
+        });
+    });
+</script>
+<div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%; border: 4cm; background-color: rgb(123, 197, 116);">
+    <h3 id="rank">Top 10 Most Waste Recycling Wards in last 3 years</h3>
+    <div id="data_table6" style="margin: 1em 1em 1em 1em;">
+
+    </div>
+</div>
+
+
+
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+            url: urldata2,
+            dataType: "text",
+            success: function (data) {
+                var csvdata = data.split(/\r?\n|\r/);
+                var table_data = '<table class="table table-bordered table-striped">';
+                    var cell_data = csvdata[0].split(",");
+                    table_data += '<tr>';
+                    for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                    table_data += '<th>' + cell_data[cell_count] + '</th>';
+                }
+                table_data += '</tr>';
+                for (var count = csvdata.length - 11; count < csvdata.length; count++) {
                     var cell_data = csvdata[count].split(",");
                     table_data += '<tr>';
                     for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
@@ -162,13 +259,15 @@
         });
     });
 </script>
-<div  style="padding-left: 5em; margin: 1em 5em 1em 5em; border: 4cm; background-color: beige;">
-    <h3 id="rank">Ranking of Wards by waste recycled in last 3 years</h3>
-<div id="data_table3"  style="margin: 1em 1em 1em 1em;">
-    
-</div>
-</div>
+<div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: rgb(212, 132, 132);">
+    <h3 id="rank">Worst 10 Most Waste Recycling Wards in last 3 years</h3>
+    <div id="data_table3" style="margin: 1em 1em 1em 1em;">
 
+    </div>
+</div>
+</div>
+<br>
+<br>
 <div class="text-center">
     <a style="float: none;" onclick="show2()" class="but">Show/Hide Full Data</a>
 </div>

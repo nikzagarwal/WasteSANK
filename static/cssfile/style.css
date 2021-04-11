@@ -126,6 +126,15 @@ input[type=text], select, textarea{
     box-sizing: border-box;
     resize: vertical;
   }
+
+  input[type=password], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
   
   /* Style the label to display next to the inputs */
   label {
