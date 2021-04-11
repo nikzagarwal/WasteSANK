@@ -6,16 +6,121 @@
 
 <!-- result  -->
 <section>
-    <div class="goalbox" >
+    <div class="goalbox">
         <h1>Get Rewarded</h1>
         <p> These people listed here are soon getting reawrds once waste is collected from them</p>
-        <p >To win reward just collect waste of particular company products and then add data here</p>
+        <p>To win reward just collect waste of particular company products and then add data here</p>
         <br>
     </div>
 
     <div class="container text-center">
-        <a href="/rewardform" style="float: none;" class="but" >Add Data</a>
-       
+        <a href="/rewardform" style="float: none;" class="but">Add Data</a>
     </div>
-    </script>
+
+
+   
+    <div class="centertable">
+        <table class="styled-table">
+            
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>Company Name</th>
+                    <th>Waste amount</th>
+                    <th>Amount Type</th>
+                    <th>Email Id</th>
+                    <th>Phone no.</th>      
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr class="active-row">
+                    {% for x in reward %}
+                    <td>{{x.sno}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.company_name}}</td>
+                    <td>{{x.wasteamt}}</td>
+                    <td>{{x.wasteamttype}}</td>
+                    <td>{{x.emailid}}</td>
+                    <td>{{x.phoneno}}</td>
+                    {% endfor %}
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+
+
+
+
+
+
+    <style>
+        .centertable {
+            margin-left: 12%;
+            margin-right: 5%;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 100px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+    </style>
+
+
     {% endblock body %}

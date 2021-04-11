@@ -77,8 +77,9 @@ def reward():
       db.session.add(x)
       db.session.commit()
       reward=Rewarddb.query.all()
-      return render_template('reward.html',reward=reward)       
-   return render_template('reward.html')
+      return render_template('reward.html',myreward=reward) 
+   reward=Rewarddb.query.all()      
+   return render_template('reward.html',reward=reward)
 
 @app.route('/locate')
 def loacte():        
@@ -99,7 +100,8 @@ def industry():
       db.session.commit()
       industry=Industrydb.query.all()
       return render_template('industry.html',industry=industry)       
-   return render_template('industry.html')
+   industry=Industrydb.query.all()
+   return render_template('industry.html',industry=industry)
 
 @app.route('/localform')
 def localform():     

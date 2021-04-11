@@ -15,7 +15,112 @@
 
     <div class="container text-center">
         <a href="/industryform" style="float: none;" class="but" >Add Data</a>
-       
     </div>
-    </script>
+    
+    <div class="centertable">
+        <table class="styled-table">
+            
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name of Company</th>
+                    <th>Plant Capacity(in tonnes)</th>
+                    <th>Waste Collected(in tonnes)</th>
+                    <th>Waste Recycled(in tonnes)</th>
+                    <th>Time</th>
+                    <th>Email Id</th>
+                    <th>Contact</th>      
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr class="active-row">
+                    {% for x in industry %}
+                    <td>{{x.sno}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.plantcap}}</td>
+                    <td>{{x.waste_collected}}</td>
+                    <td>{{x.waste_recycled}}</td>
+                    <td>{{x.Time}}</td>
+                    <td>{{x.emailid}}</td>
+                    <td>{{x.phoneno}}</td>
+                    {% endfor %}
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+
+
+
+
+
+
+    <style>
+        .centertable {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 100px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+    </style>
+
+    
     {% endblock body %}
