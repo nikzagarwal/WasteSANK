@@ -4,8 +4,6 @@
 
 This Project is made during Reimagine Waste5 hackathon hosted by IEEE RIT 
 
-![image-20210414165448742](C:\Users\Nikhil Agarwal\AppData\Roaming\Typora\typora-user-images\image-20210414165448742.png)
-
 ## **Problem statement**
 
 1. **Improve Plastic Waste Management**
