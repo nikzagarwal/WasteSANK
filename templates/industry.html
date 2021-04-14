@@ -18,8 +18,13 @@
         <a href="/industryform" style="float: none;" class="but" >Add Data</a>
     </div>
     
-    <div class="centertable">
-        <table class="styled-table">
+    <div  class="centertable">
+        <div class="goalbox">
+        
+        <p class="goalbox"> These companies are getting excess waste and are have to dump rest</p>
+        
+    </div>
+            <table class="styled-table">
             
             <thead>
                 <tr>
@@ -36,7 +41,7 @@
             <tbody>
                 {% for x in industry %}
                 <tr class="active-row">
-                    
+                    {%if x.plantcap>x.waste_collected %}
                     <td>{{x.sno}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.plantcap}}</td>
@@ -47,6 +52,47 @@
                     <td>{{x.phoneno}}</td>
                    
                     </tr>
+                    {% endif %}
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+<br>
+    <div  class="centertable">
+        <div class="goalbox">
+        
+        <p class="goalbox"> These companies are getting less waste and should be alloted more</p>
+        
+    </div>
+            <table class="styled-table">
+            
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name of Company</th>
+                    <th>Plant Capacity(in tonnes)</th>
+                    <th>Waste Collected(in tonnes)</th>
+                    <th>Waste Recycled(in tonnes)</th>
+                    <th>Time</th>
+                    <th>Email Id</th>
+                    <th>Contact</th>      
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in industry %}
+                <tr class="active-row">
+                    {%if x.waste_collected>x.plantcap %}
+                    <td>{{x.sno}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.plantcap}}</td>
+                    <td>{{x.waste_collected}}</td>
+                    <td>{{x.waste_recycled}}</td>
+                    <td>{{x.Time}}</td>
+                    <td>{{x.emailid}}</td>
+                    <td>{{x.phoneno}}</td>
+                   
+                    </tr>
+                    {% endif %}
                     {% endfor %}
             </tbody>
         </table>
