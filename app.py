@@ -4,12 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 import json
 
-with open('templates/config.json','r') as c:
-   params = json.load(c)["params"]
+
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = params['server2']
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///plastic.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db=SQLAlchemy(app)
 
