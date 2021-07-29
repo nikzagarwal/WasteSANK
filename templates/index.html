@@ -1,10 +1,214 @@
 {% extends 'base.html' %}
 {% block title %} Home{% endblock title %}
 {% block body %}
+<!doctype html>
+<style>
+body
+{
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: consolas;
+}
+.container
+{
+	position: relative;
+	width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.container .box
+{
+	position: relative;
+	width: 260px;
+	height: 360px;
+	margin: 30px 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.container .box .imgBx
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: circle(400px at center 100px);
+	transition: 0.5s;
+	transition-delay: 0.5s;
+}
+.container .box:hover .imgBx
+{
+	clip-path: circle(80px at center 100px);
+	transition-delay: 0s;
+}
+.container .box .imgBx img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.container .box .content
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 55%;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.container .box .content h2
+{
+	margin: 0;
+	padding: 0;
+}
+.container .box .content a
+{
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	display:inline-table;
+}
+.container .box .content h2,
+.container .box .content p,
+.container .box .content a
+{
+	opacity: 0;
+	transition: 0.5s;
+	transform: translateY(20px);
+}
+.container .box:hover .content h2
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.5s
+}
+.container .box:hover .content p
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.7s
+}
+.container .box:hover .content a
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.9s
+}
+.p{
+
+    color: #f05f1bea; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px
+
+  }
+.curved-div {
+background: #e9b25f56;
+color: rgb(117, 21, 97);
+text-align:center;
+padding: 70px 0;
+position: relative;
+
+}
+.curved-div h1 {
+font-size: 6rem;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.curved-div p {
+font-size: 29px;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.curved-div svg {
+display: block;
+}
+</style>
+<section>
+</div>
+  <div class="curved-div" >
+      <h1>Welcome to WasteSANK</h1>
+      <svg viewBox="0 0 1440 320">
+        <path fill="#fff" fill-opacity="1" d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+      <br>
+     <br>
+<div style="background-color: rgba(250, 50, 24, 0.301);">
+      <p>India generates approximately 25,000 to 30,000 tonnes of plastic waste every day</p>
+      <p>Approximately 10,556 tonnes of this waste remains uncollected and thus reaches landfills or is thrown on the streets. </p>
+
+      <p> So, here we are trying to provide one stop solutions to various problems</p>
+      <br>
+    </div>
+  </div>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="box">
+				<div class="imgBx">
+                        <img width="300" height="200" src="{{url_for('static',filename='img/img-3.png')}}" alt="gito.ai" />
+				</div>
+				<div class="content">
+					<h2>Dashboard</h2>
+          <a href="/local">Local</a>
+					<p>Analsysis of daily waste generated and recycled in our city</p>
+					
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+        <img width="300" height="200" src="{{url_for('static',filename='img/img-4.jpg')}}" alt="marketplace" />
+				</div>
+				<div class="content">
+					<h2>Reward</h2>
+          <a href="/reward">Reward</a>
+					<p>A system where waste collectors can get rewarded by comapnies</p>
+					
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img width="300" height="200"src="{{url_for('static',filename='img/img-1.jpg')}}" alt="survey" />
+				</div>
+				<div class="content">
+					<h2>Industrial</h2>
+          <a href="/industry">Industrial</a>
+					<p>An initiative to balance waste distribution among industries for better management </p>
+          
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img width="300" height="200"src="{{url_for('static',filename='img/img-2.jpg')}}" alt="survey" />
+				</div>
+				<div class="content">
+					<h2>Locate</h2>
+          <a href="/locate">Locate</a>
+         <p>Now, Municipality can keep track of its waste picking vehicles</p>
+        
+				</div>
+			</div>
+    </div>
+	</body>
+</html>
 
 
 
-<!-- result  -->
+<!-- result  
+
 <style>
 
 figure.effect-oscar {
@@ -201,17 +405,42 @@ figure.effect-oscar:hover img {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-    p{
-      color: #7a7c7f; font-size: 29px; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px; 
+    .p{
+
+      color: #f05f1bea; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px
+  
     }
-    .goalbo h1{
-      color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 65px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff;
-    }
+      .curved-div {
+  background: #e9b25f56;
+  color: rgb(117, 21, 97);
+  text-align:center;
+  padding: 70px 0;
+  position: relative;
+  
+}
+.curved-div h1 {
+  font-size: 6rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.curved-div p {
+  font-size: 29px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  .curved-div svg {
+  display: block;
+}
+
+
+
 
 </style>
 <section>
-    <div class="goalbo" >
+  </div>
+    <div class="curved-div" >
         <h1>Welcome to WasteSANK</h1>
+        <svg viewBox="0 0 1440 320">
+          <path fill="#fff" fill-opacity="1" d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
         <br>
         <br>
 <div style="background-color: antiquewhite;">
@@ -223,7 +452,7 @@ figure.effect-oscar:hover img {
       </div>
     </div>
 
-
+   
     <div class="container-fluid">
         <div class="content">
           <div class="row grid justify-content-center">
@@ -273,8 +502,6 @@ figure.effect-oscar:hover img {
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div>   
       
-{% endblock body %}
+{% endblock body %}-->
