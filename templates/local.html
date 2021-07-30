@@ -411,6 +411,22 @@
             font-weight: bold;
             color: #181410;
         }
+        tr:hover {
+            background-color: #f3cb75;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+     
+    tr.active-row {
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .styled-table tr{
+            width: 90%;
+        }
+    }
 
         .button {
             background-color: #4CAF50;
