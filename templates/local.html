@@ -7,7 +7,7 @@
 <!-- result  -->
 <section>
     <div class="goalbox">
-        <h1>Dashboard</h1>
+        <h1  style="font-size: xx-large;"> Dashboard</h1>
         <p> Now, you can visualize the status of Bangalore city in terms of waste and how your area is doing</p>
         <br>
     </div>
@@ -75,8 +75,8 @@
             });
         });
     </script>
-    <div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%;  border: 4cm; background-color: rgb(123, 197, 116);">
-        <h5 id="rank">Top 10 Least Dry Waste Generating wards in last 3 years</h5>
+    <div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%;  border: 4cm; background-color: #eed2b2;">
+        <h5 id="rank" style="font-size: x-large;color:#483C46;">Top 10 Least Dry Waste Generating wards in last 3 years</h5>
         <div id="data_table2" style="margin: 1em 1em 1em 1em;">
 
         </div>
@@ -117,8 +117,8 @@
             });
         });
     </script>
-    <div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: rgb(212, 132, 132);">
-        <h5 id="rank">Worst 10 Most Dry Waste Generating wards in last 3 years</h5>
+    <div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: #eed2b2;">
+        <h5 id="rank" style="font-size: x-large;color:#483C46;">Worst 10 Most Dry Waste Generating wards in last 3 years</h5>
         <div id="data_table5" style="margin: 1em 1em 1em 1em;">
 
         </div>
@@ -214,8 +214,8 @@
         });
     });
 </script>
-<div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%; border: 4cm; background-color: rgb(123, 197, 116);">
-    <h5 id="rank">Top 10 Most Waste Recycling Wards in last 3 years</h5>
+<div class="col-50" style="width: 45%; margin-left: 2%;padding-bottom: 1.25%; border: 4cm; background-color: #eed2b2;">
+    <h5 id="rank"  style="font-size: x-large;color:#483C46;">Top 10 Most Waste Recycling Wards in last 3 years</h5>
     <div id="data_table6" style="margin: 1em 1em 1em 1em;">
 
     </div>
@@ -258,8 +258,8 @@
         });
     });
 </script>
-<div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: rgb(212, 132, 132);">
-    <h5 id="rank">Worst 10 Most Waste Recycling Wards in last 3 years</h5>
+<div class="col-50" style="width: 45%; margin-left: 2%; border: 4cm; background-color: #eed2b2;">
+    <h5 id="rank" style="font-size: x-large;color:#483C46;">Top 10 Most Waste Recycling Wards in last 3 years </h5>
     <div id="data_table3" style="margin: 1em 1em 1em 1em;">
 
     </div>
@@ -355,14 +355,16 @@
     </table>
 </div>
 
+
 <style>
+  
     h2{
         text-align: center;
-    font-weight: bolder;
+    font-weight: normal;
     font-family: 'Helvetica Neue', sans-serif;
-    text-shadow: #53b4a2 1px 1px;
+    text-shadow: #f5b266 1px 1px;
     text-transform: uppercase;
-    
+    background-color: rosybrown 1px 1px;
     color:rgb(43, 41, 54);
     }
     
@@ -383,8 +385,8 @@
         }
 
         .styled-table thead tr {
-            background-color: #009879;
-            color: #ffffff;
+            background-color: #eed2b2;
+            color: rgb(43, 41, 54);
             text-align: left;
         }
 
@@ -402,13 +404,29 @@
         }
 
         .styled-table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
+            border-bottom: 2px solid #eed2b2;
         }
 
         .styled-table tbody tr.active-row {
             font-weight: bold;
-            color: #009879;
+            color: #181410;
         }
+        tr:hover {
+            background-color: #f3cb75;
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+     
+    tr.active-row {
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .styled-table tr{
+            width: 90%;
+        }
+    }
 
         .button {
             background-color: #4CAF50;
